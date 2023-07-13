@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<HTML xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<HEAD>
+	<TITLE>Station</TITLE>
+	<META CHARSET="UTF-8">
+</HEAD>
+
+<BODY>
+	<H1>駅一覧</H1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th> <!-- 投稿のIDを表示する列 -->
+				<th>Station</th> <!-- 駅名表示する列 -->
+			</tr>
+		</thead>
+
+		<tbody>
+			<a th:href="@{/add}">新規登録</a>
+			<!-- 投稿の数だけ反復処理 -->
+			<tr th:each="stationlist : ${stationlist}" th:object="${stationlist}" class="align-middle">
+				<!-- 投稿のIDを表示 -->
+				<td th:text="${stationlist.id}"></td>
+				<!-- 投稿の内容を表示 -->
+				<td th:text="${stationlist.station_name}"></td>
+				<td>
+					<!--編集ボタン-->
+					<a th:href="@{/edit/{id}(id=*{id})}">編集</a>
+					<!--削除ボタン-->
+					<a th:href="@{/delete/{id}(id=*{id})}">削除</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</BODY>
+
+</HTML>

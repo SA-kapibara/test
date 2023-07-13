@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<HEAD>
+	<TITLE>Station_add</TITLE>
+	<META CHARSET="UTF-8">
+</HEAD>
+
+<body>
+
+	<h1>新規登録</h1>
+
+	<form th:action="@{/add/create}" th:object="${add_userRequest}">
+		<table class="formTable">
+			<tr>
+				<th>駅名</th>
+				<td><input type="text" th:field="*{station_name}" required></td>
+			</tr>
+		</table>
+
+		<div class="btn">
+			<a href="#" onclick="history.back(-1);return false;">
+				<input class="add_cancel_btn" type="submit" value="キャンセル" />
+			</a>
+			<input class="add_regi_btn" type="submit" value="　 登録 　" />
+		</div>
+
+	</form>
+</body>
+
+</html>

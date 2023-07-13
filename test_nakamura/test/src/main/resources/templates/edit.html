@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<HEAD>
+	<TITLE>Station_edit</TITLE>
+	<META CHARSET="UTF-8">
+</HEAD>
+
+<body>
+
+	<h1>編集</h1>
+
+	<form th:action="@{/update/{id}(id=*{id})}" >　
+		<div>
+			<textarea class="edit_textarea" name="edit" rows="1" th:object="${editForm}" th:field="*{station_name}">
+			</textarea>
+<!--			<input type="hidden" name="id" th:value="${editForm.id}" />-->
+		</div>
+
+<!--		<div class="btn">-->
+<!--			<div class="btn_between btn">-->
+				<a href="#" onclick="history.back(-1);return false;">
+					<input class="btn_cancel" type="submit" value="キャンセル" />
+				</a>
+
+				<input class="btn_red" type="submit" value="編集" />
+				
+<!--			</div>-->
+<!--		</div>-->
+	</form>
+</body>
+
+</html>
